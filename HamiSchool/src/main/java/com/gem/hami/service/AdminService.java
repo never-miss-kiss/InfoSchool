@@ -5,6 +5,7 @@ import com.gem.hami.entity.Report;
 
 import java.util.List;
 
+
 public interface AdminService {
 //    /admin
 //    管理员后台：
@@ -38,27 +39,56 @@ public interface AdminService {
 //  按名称模糊查找
     public List<Admin> findAdminsByCondition(String name);
 
-
-
+    /**
+     * @Author：Wang
+     * @Result:
+     * @Date：Created in 19:30 2018/6/4
+     * @Modified By: tian
+     * 因为这是service层接口，一个seivice层接口可能要调用几个dao层接口
+     * dao层接口属于对数据库的原子操作 方法名一般用 insert delete update select
+     * service层是 是对数据库的一组操作  本项目中方法名一般用 add remove modify find
+    /**
+     * 查找所有的管理员
+     * @return
+     */
+    public List<Admin> findAdmin();
 
 
 //            /admin/removeUser.action
 //            删除用户信息
-    public boolean removeUser(int userId);
+    public boolean removeUserByName(String uname);
 
+    /**
+     * @Author：Wang
+     * @Date：Created in 19:50 2018/6/4
+     * @Modified By:
+     */
+    /**
+     * /admin/findReport.action
+     * 查找所有的举报信息
+     * @return
+     */
+    public List<Report> findReport();
 
-//    /admin/addReport.action
-//    举报功能（即举报表的提交）
+//
+//
+    /**
+     * @Author：Wang
+     * @Date：Created in 20:02 2018/6/4
+     * @Modified By:
+     */
+    /**
+     * /User?addReport.action
+     * 举报功能（即举报表的提交）
+     * @param report
+     * @return
+     */
     public boolean addReport(Report report);
-
 
 
 //  /admin/removeReport.action
 //    处理举报信息；
-    public boolean removeReport(int reportId);
+    public boolean  removeReportByTietle(String title);
 
-//  /admin/findReports.adction
-//   显示所有举报信息；
-    public List<Report> findReports();
 
 }

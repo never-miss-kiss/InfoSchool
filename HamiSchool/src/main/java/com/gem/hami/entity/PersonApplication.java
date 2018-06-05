@@ -15,7 +15,7 @@ public class PersonApplication {
 
     private String photo;
 
-    private Integer applicationStateId;
+    private  ApplicationState applicationState;
 
     private Date submitTime;
 
@@ -31,6 +31,14 @@ public class PersonApplication {
 
     public void setPersonApplicationId(Integer personApplicationId) {
         this.personApplicationId = personApplicationId;
+    }
+
+    public ApplicationState getApplicationState() {
+        return applicationState;
+    }
+
+    public void setApplicationState(ApplicationState applicationState) {
+        this.applicationState = applicationState;
     }
 
     public String getName() {
@@ -71,14 +79,6 @@ public class PersonApplication {
 
     public void setPhoto(String photo) {
         this.photo = photo == null ? null : photo.trim();
-    }
-
-    public Integer getApplicationStateId() {
-        return applicationStateId;
-    }
-
-    public void setApplicationStateId(Integer applicationStateId) {
-        this.applicationStateId = applicationStateId;
     }
 
     public Date getSubmitTime() {

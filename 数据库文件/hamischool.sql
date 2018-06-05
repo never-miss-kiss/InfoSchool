@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2018-06-03 19:33:50
+Date: 2018-06-05 08:40:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -164,22 +164,23 @@ CREATE TABLE `forum_post_comment` (
   `content` varchar(20) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `release_time` datetime DEFAULT NULL,
+  `forum_post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`forum_post_comment_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of forum_post_comment
 -- ----------------------------
-INSERT INTO `forum_post_comment` VALUES ('1', '不错不错', '1', '2018-05-18 09:42:49');
-INSERT INTO `forum_post_comment` VALUES ('2', '牛逼啊五五分', '2', '2018-05-09 09:43:25');
-INSERT INTO `forum_post_comment` VALUES ('3', 'sjkdhajk ', '3', '2018-05-11 09:44:06');
-INSERT INTO `forum_post_comment` VALUES ('4', '我可以摸摸你的奖杯吗', '3', '2018-05-30 09:44:52');
-INSERT INTO `forum_post_comment` VALUES ('5', '顶你', '3', '2018-05-31 09:45:06');
-INSERT INTO `forum_post_comment` VALUES ('6', '有什么呀', '2', '2018-05-29 09:45:21');
-INSERT INTO `forum_post_comment` VALUES ('7', '大佬说得对', '4', '2018-05-10 09:45:39');
-INSERT INTO `forum_post_comment` VALUES ('8', '什么', '5', '2018-05-16 09:45:57');
-INSERT INTO `forum_post_comment` VALUES ('9', '德玛西亚', '6', '2018-05-29 09:46:11');
-INSERT INTO `forum_post_comment` VALUES ('10', '菊花信', '5', '2018-05-29 09:46:29');
+INSERT INTO `forum_post_comment` VALUES ('1', '不错不错', '1', '2018-05-18 09:42:49', null);
+INSERT INTO `forum_post_comment` VALUES ('2', '牛逼啊五五分', '2', '2018-05-09 09:43:25', null);
+INSERT INTO `forum_post_comment` VALUES ('3', 'sjkdhajk ', '3', '2018-05-11 09:44:06', null);
+INSERT INTO `forum_post_comment` VALUES ('4', '我可以摸摸你的奖杯吗', '3', '2018-05-30 09:44:52', null);
+INSERT INTO `forum_post_comment` VALUES ('5', '顶你', '3', '2018-05-31 09:45:06', null);
+INSERT INTO `forum_post_comment` VALUES ('6', '有什么呀', '2', '2018-05-29 09:45:21', null);
+INSERT INTO `forum_post_comment` VALUES ('7', '大佬说得对', '4', '2018-05-10 09:45:39', null);
+INSERT INTO `forum_post_comment` VALUES ('8', '什么', '5', '2018-05-16 09:45:57', null);
+INSERT INTO `forum_post_comment` VALUES ('9', '德玛西亚', '6', '2018-05-29 09:46:11', null);
+INSERT INTO `forum_post_comment` VALUES ('10', '菊花信', '5', '2018-05-29 09:46:29', null);
 
 -- ----------------------------
 -- Table structure for `forum_post_like`
@@ -353,22 +354,23 @@ CREATE TABLE `help_buy` (
   `user_id` int(11) DEFAULT NULL,
   `end_time` datetime DEFAULT NULL,
   `is_finished` char(1) DEFAULT NULL,
+  `click_count` int(11) DEFAULT NULL,
   PRIMARY KEY (`help_buy_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of help_buy
 -- ----------------------------
-INSERT INTO `help_buy` VALUES ('1', '鲜花', '郑州大学(新校区)', '北侧', '丹尼斯·大卫城-地下停车场', '大门口', '玫瑰', '25', '50', '55', '2018-06-01 19:54:06', null, null, null);
-INSERT INTO `help_buy` VALUES ('2', '奶茶', '郑州大学(新校区)', '北侧', '郑州航空工业管理学院', '大门口', '巧克力味', '26.22', '53', '52', '2018-06-01 19:54:10', null, null, null);
-INSERT INTO `help_buy` VALUES ('3', '水果', '郑州大学(新校区)', '北侧', '东风南路', '大门口', '西瓜', '26.22', '53', '50', '2018-06-01 19:54:13', null, null, null);
-INSERT INTO `help_buy` VALUES ('4', 'KFC', '郑州大学(新校区)', '北侧', '紫荆名苑', '大门口', '全家桶', '17.13', '35', '35', '2018-06-01 19:54:16', null, null, null);
-INSERT INTO `help_buy` VALUES ('5', '饮品', '郑州大学(新校区)', '教学咯', '二七广场', '大楼下面', '随便', '17.02', '35', '35', '2018-06-01 19:54:19', null, null, null);
-INSERT INTO `help_buy` VALUES ('6', '饮品', '郑州航空工业管理学院', '东苑餐厅', '二七广场', '大楼下面', '随便', '13.52', '29', '30', '2018-06-01 19:54:21', null, null, null);
-INSERT INTO `help_buy` VALUES ('7', '饮品', '郑州航空工业管理学院', '东苑餐厅', '河南财经政法大学', '大楼下面', '随便', '4.16', '15', '10', '2018-06-01 19:54:23', null, null, null);
-INSERT INTO `help_buy` VALUES ('8', '饮品', '郑州航空工业管理学院', '东苑餐厅', '河南警察学院', '大楼下面', '随便', '4.26', '15', '10', '2018-06-01 19:54:26', null, null, null);
-INSERT INTO `help_buy` VALUES ('9', '外卖', '郑州航空工业管理学院', '东苑餐厅', '百脑汇电脑城(郑州店)', '东边', '多加辣椒', '11.98', '25', '26', '2018-06-01 19:54:29', null, null, null);
-INSERT INTO `help_buy` VALUES ('10', '外卖', '郑州航空工业管理学院', '东苑餐厅', '市体育中心', '东边', '多加辣椒', '11.98', '25', '25', '2018-06-01 19:54:30', null, null, null);
+INSERT INTO `help_buy` VALUES ('1', '鲜花', '郑州大学(新校区)', '北侧', '丹尼斯·大卫城-地下停车场', '大门口', '玫瑰', '25', '50', '55', '2018-06-01 19:54:06', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('2', '奶茶', '郑州大学(新校区)', '北侧', '郑州航空工业管理学院', '大门口', '巧克力味', '26.22', '53', '52', '2018-06-01 19:54:10', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('3', '水果', '郑州大学(新校区)', '北侧', '东风南路', '大门口', '西瓜', '26.22', '53', '50', '2018-06-01 19:54:13', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('4', 'KFC', '郑州大学(新校区)', '北侧', '紫荆名苑', '大门口', '全家桶', '17.13', '35', '35', '2018-06-01 19:54:16', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('5', '饮品', '郑州大学(新校区)', '教学咯', '二七广场', '大楼下面', '随便', '17.02', '35', '35', '2018-06-01 19:54:19', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('6', '饮品', '郑州航空工业管理学院', '东苑餐厅', '二七广场', '大楼下面', '随便', '13.52', '29', '30', '2018-06-01 19:54:21', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('7', '饮品', '郑州航空工业管理学院', '东苑餐厅', '河南财经政法大学', '大楼下面', '随便', '4.16', '15', '10', '2018-06-01 19:54:23', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('8', '饮品', '郑州航空工业管理学院', '东苑餐厅', '河南警察学院', '大楼下面', '随便', '4.26', '15', '10', '2018-06-01 19:54:26', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('9', '外卖', '郑州航空工业管理学院', '东苑餐厅', '百脑汇电脑城(郑州店)', '东边', '多加辣椒', '11.98', '25', '26', '2018-06-01 19:54:29', null, null, null, null);
+INSERT INTO `help_buy` VALUES ('10', '外卖', '郑州航空工业管理学院', '东苑餐厅', '市体育中心', '东边', '多加辣椒', '11.98', '25', '25', '2018-06-01 19:54:30', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `help_comment`
@@ -427,21 +429,22 @@ CREATE TABLE `help_fetch` (
   `user_id` int(11) DEFAULT NULL,
   `end_time` datetime DEFAULT NULL,
   `is_finished` char(1) DEFAULT NULL,
+  `click_count` int(11) DEFAULT NULL,
   PRIMARY KEY (`help_fetch_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of help_fetch
 -- ----------------------------
-INSERT INTO `help_fetch` VALUES ('1', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第三节课之前', '1.5', '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('2', '3', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '晚上七点', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('3', '4', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第五节课之前', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('4', '4', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '周三下午', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('5', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '', '全天任意时间', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('6', '3', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '周五上午10点', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('7', '3', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第三节课', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('8', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第三节课之后', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
-INSERT INTO `help_fetch` VALUES ('9', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', ' 明天9点', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null);
+INSERT INTO `help_fetch` VALUES ('1', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第三节课之前', '1.5', '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('2', '3', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '晚上七点', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('3', '4', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第五节课之前', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('4', '4', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '周三下午', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('5', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '', '全天任意时间', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('6', '3', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '周五上午10点', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('7', '3', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第三节课', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('8', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', '第三节课之后', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
+INSERT INTO `help_fetch` VALUES ('9', '2', '1号楼', '303', '13545612378', '2号楼', '505', '13612356478', '10分钟之内办好加5元', ' 明天9点', null, '2.3', '10.5', '2018-06-14 08:12:00', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `help_queue`
@@ -463,16 +466,17 @@ CREATE TABLE `help_queue` (
   `user_id` int(11) DEFAULT NULL,
   `end_time` datetime DEFAULT NULL,
   `is_finished` char(1) DEFAULT NULL,
+  `click_count` int(11) DEFAULT NULL,
   PRIMARY KEY (`help_queue_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of help_queue
 -- ----------------------------
-INSERT INTO `help_queue` VALUES ('1', '代挂号', '医院挂号', '河南科技大学新区医院', '三楼左侧内科', '13323253212', '18年6月2号上午', '大约两小时', '5000', '50', '40', '2018-05-27 00:00:00', null, null, null);
-INSERT INTO `help_queue` VALUES ('2', '美食排', '排队买商品', '河南科技大学', '三餐厅一楼15窗口', '13323253212', '18年5月29号上午11点', '大约10分钟', null, '2', '2', '2018-05-27 00:00:00', null, null, null);
-INSERT INTO `help_queue` VALUES ('3', '业务排', '银行业务排队', '中国建设银行', '瀛洲路', '15523253212', '18年6月7号上午11点', '大约30分钟', null, '10', '10', '2018-05-27 00:00:00', null, null, null);
-INSERT INTO `help_queue` VALUES ('4', '占座排', '图书馆占座', '郑州航院图书馆', null, '15523253212', '18年6月7号上午11点', '大约30分钟', null, '10', '10', '2018-05-27 00:00:00', null, null, null);
+INSERT INTO `help_queue` VALUES ('1', '代挂号', '医院挂号', '河南科技大学新区医院', '三楼左侧内科', '13323253212', '18年6月2号上午', '大约两小时', '5000', '50', '40', '2018-05-27 00:00:00', null, null, null, null);
+INSERT INTO `help_queue` VALUES ('2', '美食排', '排队买商品', '河南科技大学', '三餐厅一楼15窗口', '13323253212', '18年5月29号上午11点', '大约10分钟', null, '2', '2', '2018-05-27 00:00:00', null, null, null, null);
+INSERT INTO `help_queue` VALUES ('3', '业务排', '银行业务排队', '中国建设银行', '瀛洲路', '15523253212', '18年6月7号上午11点', '大约30分钟', null, '10', '10', '2018-05-27 00:00:00', null, null, null, null);
+INSERT INTO `help_queue` VALUES ('4', '占座排', '图书馆占座', '郑州航院图书馆', null, '15523253212', '18年6月7号上午11点', '大约30分钟', null, '10', '10', '2018-05-27 00:00:00', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `help_send`
@@ -491,23 +495,24 @@ CREATE TABLE `help_send` (
   `create_time` datetime DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `end_time` datetime DEFAULT NULL,
-  `is_finished` char(1) DEFAULT NULL,
+  `is_finished` char(1) DEFAULT 'F',
+  `click_count` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`help_send_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of help_send
 -- ----------------------------
-INSERT INTO `help_send` VALUES ('1', '文件', '郑州市西三环', '郑州市东三环', '文件有些着急，请快点送达', '2018-05-28 20:55:16', '10.5', '15', '25', '2018-05-28 20:57:41', '1', null, null);
-INSERT INTO `help_send` VALUES ('2', '美食', '郑航', '华水', '请15分钟内送达', '2018-05-11 21:00:41', '1.5', '3', '3', '2018-05-11 21:01:04', '3', null, null);
-INSERT INTO `help_send` VALUES ('3', '蛋糕', '郑州大学', '郑航', '请30分钟内送达', '2018-05-30 21:07:36', '30', '20', '30', '2018-05-30 21:07:53', '5', null, null);
-INSERT INTO `help_send` VALUES ('4', '鲜花', '河南大学', '河南科技大学', '请30分钟内送达', '2018-05-24 21:09:03', '15', '18', '15', '2018-05-24 21:09:16', '4', null, null);
-INSERT INTO `help_send` VALUES ('5', '手机', '华水', '郑航', '请10分钟内送达', '2018-05-12 21:09:51', '1.5', '3', '2', '2018-05-12 21:10:05', '6', null, null);
-INSERT INTO `help_send` VALUES ('6', '钥匙', '郑航', '郑州大学', '请40分钟内送达', '2018-05-10 21:11:09', '30', '15', '20', '2018-05-10 21:11:24', '7', null, null);
-INSERT INTO `help_send` VALUES ('7', '美食', '龙子湖', '华水', '请10分钟内送达', '2018-05-03 21:12:24', '2', '2', '2', '2018-05-03 21:12:37', '8', null, null);
-INSERT INTO `help_send` VALUES ('8', '美食', '龙子湖', '郑航', '请4分钟内送达', '2018-05-16 21:13:04', '1', '2', '2', '2018-05-16 21:13:12', '9', null, null);
-INSERT INTO `help_send` VALUES ('9', '鲜花', '华水', '郑航', '请5分钟内送达', '2018-04-12 21:15:18', '1.5', '2', '5', '2018-05-12 21:15:32', '5', null, null);
-INSERT INTO `help_send` VALUES ('10', '蛋糕', '郑航', '郑州西三环', '请10分钟内送达', '2018-05-01 21:16:50', '5', '4', '3', '2018-05-01 21:17:01', '2', null, null);
+INSERT INTO `help_send` VALUES ('1', '文件', '郑州市西三环', '郑州市东三环', '文件有些着急，请快点送达', '2018-05-28 20:55:16', '10.5', '15', '25', '2018-05-28 20:57:41', '1', null, null, null);
+INSERT INTO `help_send` VALUES ('2', '美食', '郑航', '华水', '请15分钟内送达', '2018-05-11 21:00:41', '1.5', '3', '3', '2018-05-11 21:01:04', '3', null, null, null);
+INSERT INTO `help_send` VALUES ('3', '蛋糕', '郑州大学', '郑航', '请30分钟内送达', '2018-05-30 21:07:36', '30', '20', '30', '2018-05-30 21:07:53', '5', null, null, null);
+INSERT INTO `help_send` VALUES ('4', '鲜花', '河南大学', '河南科技大学', '请30分钟内送达', '2018-05-24 21:09:03', '15', '18', '15', '2018-05-24 21:09:16', '4', null, null, null);
+INSERT INTO `help_send` VALUES ('5', '手机', '华水', '郑航', '请10分钟内送达', '2018-05-12 21:09:51', '1.5', '3', '2', '2018-05-12 21:10:05', '6', null, null, null);
+INSERT INTO `help_send` VALUES ('6', '钥匙', '郑航', '郑州大学', '请40分钟内送达', '2018-05-10 21:11:09', '30', '15', '20', '2018-05-10 21:11:24', '7', null, null, null);
+INSERT INTO `help_send` VALUES ('7', '美食', '龙子湖', '华水', '请10分钟内送达', '2018-05-03 21:12:24', '2', '2', '2', '2018-05-03 21:12:37', '8', null, null, null);
+INSERT INTO `help_send` VALUES ('8', '美食', '龙子湖', '郑航', '请4分钟内送达', '2018-05-16 21:13:04', '1', '2', '2', '2018-05-16 21:13:12', '9', null, null, null);
+INSERT INTO `help_send` VALUES ('9', '鲜花', '华水', '郑航', '请5分钟内送达', '2018-04-12 21:15:18', '1.5', '2', '5', '2018-05-12 21:15:32', '5', null, null, null);
+INSERT INTO `help_send` VALUES ('10', '蛋糕', '郑航', '郑州西三环', '请10分钟内送达', '2018-05-01 21:16:50', '5', '4', '3', '2018-05-01 21:17:01', '2', null, null, null);
 
 -- ----------------------------
 -- Table structure for `message_type`
@@ -612,7 +617,7 @@ DROP TABLE IF EXISTS `school`;
 CREATE TABLE `school` (
   `school_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  `school_sate_id` tinyint(4) DEFAULT NULL,
+  `school_state_id` tinyint(4) DEFAULT NULL,
   `remark` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`school_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
