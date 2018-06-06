@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2018-06-05 08:40:26
+Date: 2018-06-06 09:08:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -225,12 +225,23 @@ CREATE TABLE `goods` (
   `remark` varchar(150) DEFAULT NULL,
   `click_count` int(11) DEFAULT NULL,
   `goods_category_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`goods_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
+INSERT INTO `goods` VALUES ('1', '自行车', '100', null, '郑航西餐厅', '2018-04-05 00:00:00', '15626487892', '1564879234@qq.com', '1564879234', null, '156', '1', '1');
+INSERT INTO `goods` VALUES ('2', 'iPhone8', '2500', null, '郑航12号公寓', '2018-03-06 00:00:00', '14693527955', '1849562378@qq.com', '1849562378', null, '356', '2', '3');
+INSERT INTO `goods` VALUES ('3', '联想电脑', '2700', null, '郑航东苑', '2018-03-08 00:00:00', '15698478932', '1849753629@qq.com', '1849753629', null, '50', '3', '5');
+INSERT INTO `goods` VALUES ('4', '电饭煲', '50', null, '郑航东餐厅', '2018-04-06 00:00:00', '18495623786', '1436589715@qq.com', '1436589715', null, '20', '6', '2');
+INSERT INTO `goods` VALUES ('5', '高等数学(1)', '10', null, '郑航A座教学楼', '2018-06-05 00:00:00', '14875936244', '1548796325@qq.com', '1548796325', null, '15', '9', '4');
+INSERT INTO `goods` VALUES ('6', '吉他', '110', null, '郑航B座教学楼', '2018-05-05 00:00:00', '15648978932', '1584642359@qq.com', '1584642359', null, '54', '11', '6');
+INSERT INTO `goods` VALUES ('7', '蓝色牛仔裤', '80', null, '郑航西广场', '2018-06-09 00:00:00', '15647923485', '1846795236@qq.com', '1846795236', null, '45', '7', '5');
+INSERT INTO `goods` VALUES ('8', '哑铃', '30', null, '郑航体育广场', '2018-06-04 00:00:00', '15647239468', '1846253978@qq.com', '1846253978', null, '66', '10', '7');
+INSERT INTO `goods` VALUES ('9', '遮阳伞', '40', null, '郑航南门', '2018-04-02 00:00:00', '15649783249', '1846253978@qq.com', '1849764325', null, '56', '8', '4');
+INSERT INTO `goods` VALUES ('10', '数码相机', '1890', null, '郑航01教学楼', '2018-04-09 00:00:00', '15647946286', '1849263579@qq.com', '1849263579', null, '480', '4', '9');
 
 -- ----------------------------
 -- Table structure for `goods_category`
@@ -377,34 +388,34 @@ INSERT INTO `help_buy` VALUES ('10', '外卖', '郑州航空工业管理学院',
 -- ----------------------------
 DROP TABLE IF EXISTS `help_comment`;
 CREATE TABLE `help_comment` (
-  `Help_comment__id` int(11) NOT NULL AUTO_INCREMENT,
+  `help_comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `release_type` tinyint(4) DEFAULT NULL,
   `help_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Help_comment__id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`help_comment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of help_comment
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `help_comment_reply_id`
+-- Table structure for `help_comment_reply`
 -- ----------------------------
-DROP TABLE IF EXISTS `help_comment_reply_id`;
-CREATE TABLE `help_comment_reply_id` (
-  `Help_comment_reply_id` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `help_comment_reply`;
+CREATE TABLE `help_comment_reply` (
+  `help_comment_reply_id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `commented_user_id` int(11) DEFAULT NULL,
   `Help_post_comment_id` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`Help_comment_reply_id`)
+  PRIMARY KEY (`help_comment_reply_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of help_comment_reply_id
+-- Records of help_comment_reply
 -- ----------------------------
 
 -- ----------------------------
@@ -498,21 +509,23 @@ CREATE TABLE `help_send` (
   `is_finished` char(1) DEFAULT 'F',
   `click_count` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`help_send_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of help_send
 -- ----------------------------
 INSERT INTO `help_send` VALUES ('1', '文件', '郑州市西三环', '郑州市东三环', '文件有些着急，请快点送达', '2018-05-28 20:55:16', '10.5', '15', '25', '2018-05-28 20:57:41', '1', null, null, null);
-INSERT INTO `help_send` VALUES ('2', '美食', '郑航', '华水', '请15分钟内送达', '2018-05-11 21:00:41', '1.5', '3', '3', '2018-05-11 21:01:04', '3', null, null, null);
-INSERT INTO `help_send` VALUES ('3', '蛋糕', '郑州大学', '郑航', '请30分钟内送达', '2018-05-30 21:07:36', '30', '20', '30', '2018-05-30 21:07:53', '5', null, null, null);
-INSERT INTO `help_send` VALUES ('4', '鲜花', '河南大学', '河南科技大学', '请30分钟内送达', '2018-05-24 21:09:03', '15', '18', '15', '2018-05-24 21:09:16', '4', null, null, null);
-INSERT INTO `help_send` VALUES ('5', '手机', '华水', '郑航', '请10分钟内送达', '2018-05-12 21:09:51', '1.5', '3', '2', '2018-05-12 21:10:05', '6', null, null, null);
-INSERT INTO `help_send` VALUES ('6', '钥匙', '郑航', '郑州大学', '请40分钟内送达', '2018-05-10 21:11:09', '30', '15', '20', '2018-05-10 21:11:24', '7', null, null, null);
-INSERT INTO `help_send` VALUES ('7', '美食', '龙子湖', '华水', '请10分钟内送达', '2018-05-03 21:12:24', '2', '2', '2', '2018-05-03 21:12:37', '8', null, null, null);
-INSERT INTO `help_send` VALUES ('8', '美食', '龙子湖', '郑航', '请4分钟内送达', '2018-05-16 21:13:04', '1', '2', '2', '2018-05-16 21:13:12', '9', null, null, null);
-INSERT INTO `help_send` VALUES ('9', '鲜花', '华水', '郑航', '请5分钟内送达', '2018-04-12 21:15:18', '1.5', '2', '5', '2018-05-12 21:15:32', '5', null, null, null);
-INSERT INTO `help_send` VALUES ('10', '蛋糕', '郑航', '郑州西三环', '请10分钟内送达', '2018-05-01 21:16:50', '5', '4', '3', '2018-05-01 21:17:01', '2', null, null, null);
+INSERT INTO `help_send` VALUES ('2', '美食', '郑航', '华水', '请15分钟内送达', '2018-05-11 21:00:41', '1.5', '3', '3', '2018-05-11 21:01:04', '1', null, null, null);
+INSERT INTO `help_send` VALUES ('3', '鲜花', '河南大学', '河南科技大学', '请30分钟内送达', '2018-05-24 21:09:03', '15', '18', '15', '2018-05-24 21:09:16', '1', null, null, null);
+INSERT INTO `help_send` VALUES ('4', '手机', '华水', '郑航', '请10分钟内送达', '2018-05-12 21:09:51', '1.5', '3', '2', '2018-05-12 21:10:05', '6', null, null, null);
+INSERT INTO `help_send` VALUES ('5', '钥匙', '郑航', '郑州大学', '请40分钟内送达', '2018-05-10 21:11:09', '30', '15', '20', '2018-05-10 21:11:24', '7', null, null, null);
+INSERT INTO `help_send` VALUES ('6', '美食', '龙子湖', '华水', '请10分钟内送达', '2018-05-03 21:12:24', '2', '2', '2', '2018-05-03 21:12:37', '8', null, null, null);
+INSERT INTO `help_send` VALUES ('7', '美食', '龙子湖', '郑航', '请4分钟内送达', '2018-05-16 21:13:04', '1', '2', '2', '2018-05-16 21:13:12', '9', null, null, null);
+INSERT INTO `help_send` VALUES ('8', '鲜花', '华水', '郑航', '请5分钟内送达', '2018-04-12 21:15:18', '1.5', '2', '5', '2018-05-12 21:15:32', '5', null, null, null);
+INSERT INTO `help_send` VALUES ('9', '蛋糕', '郑航', '郑州西三环', '请10分钟内送达', '2018-05-01 21:16:50', '5', '4', '3', '2018-05-01 21:17:01', '2', null, null, null);
+INSERT INTO `help_send` VALUES ('10', '德玛西亚', null, null, null, null, null, null, null, null, null, null, 'F', '0');
+INSERT INTO `help_send` VALUES ('11', '德玛西亚', null, null, null, null, null, null, null, null, null, null, 'F', '0');
+INSERT INTO `help_send` VALUES ('12', '德玛西亚', null, null, null, null, null, null, null, null, null, null, 'F', '0');
 
 -- ----------------------------
 -- Table structure for `message_type`

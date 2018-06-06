@@ -19,10 +19,18 @@ public interface HelpService {
 //    帮我取，
 //    帮我送，
 //    代排队
-    public List<HelpBuy> addHelpBuy(HelpBuy helpBuy);
-    public List<HelpFetch> addHelpFetch(HelpFetch helpFetch);
-    public List<HelpSend> addHelpSend(HelpSend helpSend);
-    public List<HelpQueue> addHelpQueue(HelpQueue helpQueue);
+
+    //    /help/addHelpBuy.action
+    public boolean addHelpBuy(HelpBuy helpBuy);
+
+    //    /help/addHelpFetch.action
+    public boolean addHelpFetch(HelpFetch helpFetch);
+
+    //    /help/addHelpSend.action
+    public boolean addHelpSend(HelpSend helpSend);
+
+    //    /help/addHelpQueue.action
+    public boolean addHelpQueue(HelpQueue helpQueue);
 
 
 //    /help/addHelpComment.action
